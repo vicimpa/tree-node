@@ -1,0 +1,76 @@
+$padding: 50px
+$border: 5px
+
+.tree
+  .list
+    position: relative
+    list-style: none
+    padding-left: $padding
+
+  .item
+    position: relative
+
+  .content
+    position: relative
+
+    & > p
+      font-size: 18px
+      font-weight: 600
+      margin: 0
+
+    & > textarea
+      height: 100px
+      width: 300px
+      resize: vertical
+
+    .control
+      position: absolute
+      top: 0
+      left: -$padding
+      width: $padding
+      height: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+      flex-direction: column
+
+      .top, .left
+        position: absolute
+        margin: auto
+
+      .left
+        top: 0
+        bottom: 0
+
+        left: -25px
+        width: 50px
+        height: 1px
+        border-top: $border solid #f00
+
+      .top
+        left: -($border/2)
+        width: 1px
+        border-left: $border solid #f00
+
+      button
+        background: #999
+        border: none
+        width: 28px
+        height: 28px
+        border-radius: 100%
+        transform: rotate(180deg)
+        outline: none
+        cursor: pointer
+        z-index: 1
+
+        &::before
+          content: '+'
+
+        &.closed::before
+          content: '▾'
+
+        &.opened
+          transform: rotate(180deg)
+
+        &.opened::before
+          content: '▾'
